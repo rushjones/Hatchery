@@ -26,18 +26,21 @@ LANGUAGE_CODE = 'en-us'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+APPEND_SLASH = True
 
 MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static-collected')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'static'),
+)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-SECRET_KEY='KHN0ZGluKT0gZDVmOTVkZmEyY2MyMjdjMDQ0NmY4NzY0ZGE1MT'
+SECRET_KEY='@^8c(ia@u)1d#n@ik*k4xh7e@3-@9kztl5*f0=a-nomyrlud$3'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -54,7 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, 'templates'),)
 
@@ -66,7 +69,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'projects',
+    'project',
+    'parking_lot',
+    'softball',
 )
 
 LOGGING = {
